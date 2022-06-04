@@ -1,0 +1,23 @@
+entity memory is
+
+	port
+	(
+		address : in std_logic_vector (7 downto 0);
+		data_in : in std_logic_vector (7 downto 0);
+		writes : in std_logic;
+		port_in_xx : in std_logic_vector (7 downto 0);
+		data_out : in std_logic_vector (7 downto 0);
+		clock : in 
+	);
+end memory;
+
+
+architecture arch_memory of memory is
+
+
+
+begin
+
+
+
+end arch_memory;

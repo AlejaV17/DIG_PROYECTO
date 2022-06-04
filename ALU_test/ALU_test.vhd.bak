@@ -1,0 +1,24 @@
+entity ALU_test is
+
+	port
+	(
+		SW: in	std_logic_vector (7 downto 0);
+		CLOCK_50: in std_logic;
+		HEX0,HEX1 : out std_logic_vector (7 downto 0)
+	);
+end ALU_test;
+
+architecture arch_ALU_test of ALU_test is
+
+	component ALU
+	port
+		(
+	
+	
+		)
+
+begin
+
+
+
+end arch_ALU_test;

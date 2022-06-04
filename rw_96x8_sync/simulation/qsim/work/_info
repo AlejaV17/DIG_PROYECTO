@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\proyectoDig\proyectoDig\proyecto\rw_96x8_sync\simulation\qsim
+vrw_96x8_sync
+Z1 !s100 _ZOl;@NHUWN6fPeKGNQ]43
+Z2 IZebVhWP6B_FLP^QQbh5zZ1
+Z3 VR22MWc?aH^<Y;loSe_nTI1
+Z4 dC:\Users\UsuarioPC\Desktop\MARY\Semestre_6\DIG_II\DIGII_PROYECTOI\DIGII_PROYECTOI\rw_96x8_sync\simulation\qsim
+Z5 w1654048535
+Z6 8rw_96x8_sync.vo
+Z7 Frw_96x8_sync.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|rw_96x8_sync.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1654048537.490000
+Z12 !s107 rw_96x8_sync.vo|
+!s101 -O0
+vrw_96x8_sync_vlg_check_tst
+!i10b 1
+Z13 !s100 >cUHI4]jFN]g]I^^oIG@d1
+Z14 IHLU]O>O44A:0WUZYCd54G1
+Z15 Vb1W:GRFUX]Q]ZJDd8GL>i3
+R4
+Z16 w1654048532
+Z17 8Waveform6.vwf.vt
+Z18 FWaveform6.vwf.vt
+L0 63
+R8
+r1
+!s85 0
+31
+Z19 !s108 1654048538.428000
+Z20 !s107 Waveform6.vwf.vt|
+Z21 !s90 -work|work|Waveform6.vwf.vt|
+!s101 -O0
+R10
+vrw_96x8_sync_vlg_sample_tst
+!i10b 1
+Z22 !s100 DPFaGYY8]@o:T_j^klVM13
+Z23 IRMGQlC@CCa81>Z6VM^g0<0
+Z24 Vff8M6Pd3^M3amZ4K?B57M0
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vrw_96x8_sync_vlg_vec_tst
+!i10b 1
+!s100 IiJ<U6id0PBI0JLX;3KD30
+IH0g4H>fP_n4gDY<0QWW?F1
+Z25 VzW2`F7^`z;:WgQ4ZiLKm31
+R4
+R16
+R17
+R18
+Z26 L0 283
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10

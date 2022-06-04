@@ -1,0 +1,583 @@
+Analysis & Synthesis report for rw_96x8_sync
+Wed May 25 07:43:47 2022
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed May 25 07:43:47 2022      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; rw_96x8_sync                               ;
+; Top-level Entity Name              ; rw_96x8_sync                               ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 3,219                                      ;
+;     Total combinational functions  ; 1,467                                      ;
+;     Dedicated logic registers      ; 1,760                                      ;
+; Total registers                    ; 1760                                       ;
+; Total pins                         ; 26                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; rw_96x8_sync       ; rw_96x8_sync       ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                             ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                      ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+---------+
+; rw_96x8_sync.vhd                 ; yes             ; User VHDL File  ; D:/proyectoDig/proyectoDig/proyecto/rw_96x8_sync/rw_96x8_sync.vhd ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 3,219       ;
+;                                             ;             ;
+; Total combinational functions               ; 1467        ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 1202        ;
+;     -- 3 input functions                    ; 265         ;
+;     -- <=2 input functions                  ; 0           ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 1467        ;
+;     -- arithmetic mode                      ; 0           ;
+;                                             ;             ;
+; Total registers                             ; 1760        ;
+;     -- Dedicated logic registers            ; 1760        ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 26          ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 1760        ;
+; Total fan-out                               ; 10917       ;
+; Average fan-out                             ; 3.33        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |rw_96x8_sync              ; 1467 (1467)       ; 1760 (1760)  ; 0           ; 0            ; 0       ; 0         ; 26   ; 0            ; |rw_96x8_sync       ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------+
+; Registers Removed During Synthesis                           ;
++-----------------------------------------+--------------------+
+; Register name                           ; Reason for Removal ;
++-----------------------------------------+--------------------+
+; RW~697                                  ; Lost fanout        ;
+; RW~825                                  ; Lost fanout        ;
+; RW~569                                  ; Lost fanout        ;
+; RW~953                                  ; Lost fanout        ;
+; RW~729                                  ; Lost fanout        ;
+; RW~857                                  ; Lost fanout        ;
+; RW~601                                  ; Lost fanout        ;
+; RW~985                                  ; Lost fanout        ;
+; RW~665                                  ; Lost fanout        ;
+; RW~793                                  ; Lost fanout        ;
+; RW~537                                  ; Lost fanout        ;
+; RW~921                                  ; Lost fanout        ;
+; RW~761                                  ; Lost fanout        ;
+; RW~889                                  ; Lost fanout        ;
+; RW~633                                  ; Lost fanout        ;
+; RW~1017                                 ; Lost fanout        ;
+; RW~929                                  ; Lost fanout        ;
+; RW~833                                  ; Lost fanout        ;
+; RW~801                                  ; Lost fanout        ;
+; RW~961                                  ; Lost fanout        ;
+; RW~737                                  ; Lost fanout        ;
+; RW~641                                  ; Lost fanout        ;
+; RW~609                                  ; Lost fanout        ;
+; RW~769                                  ; Lost fanout        ;
+; RW~673                                  ; Lost fanout        ;
+; RW~577                                  ; Lost fanout        ;
+; RW~545                                  ; Lost fanout        ;
+; RW~705                                  ; Lost fanout        ;
+; RW~993                                  ; Lost fanout        ;
+; RW~897                                  ; Lost fanout        ;
+; RW~865                                  ; Lost fanout        ;
+; RW~1025                                 ; Lost fanout        ;
+; RW~689                                  ; Lost fanout        ;
+; RW~817                                  ; Lost fanout        ;
+; RW~561                                  ; Lost fanout        ;
+; RW~945                                  ; Lost fanout        ;
+; RW~721                                  ; Lost fanout        ;
+; RW~849                                  ; Lost fanout        ;
+; RW~593                                  ; Lost fanout        ;
+; RW~977                                  ; Lost fanout        ;
+; RW~657                                  ; Lost fanout        ;
+; RW~785                                  ; Lost fanout        ;
+; RW~529                                  ; Lost fanout        ;
+; RW~913                                  ; Lost fanout        ;
+; RW~753                                  ; Lost fanout        ;
+; RW~881                                  ; Lost fanout        ;
+; RW~625                                  ; Lost fanout        ;
+; RW~1009                                 ; Lost fanout        ;
+; RW~937                                  ; Lost fanout        ;
+; RW~873                                  ; Lost fanout        ;
+; RW~809                                  ; Lost fanout        ;
+; RW~1001                                 ; Lost fanout        ;
+; RW~649                                  ; Lost fanout        ;
+; RW~713                                  ; Lost fanout        ;
+; RW~585                                  ; Lost fanout        ;
+; RW~777                                  ; Lost fanout        ;
+; RW~681                                  ; Lost fanout        ;
+; RW~617                                  ; Lost fanout        ;
+; RW~553                                  ; Lost fanout        ;
+; RW~745                                  ; Lost fanout        ;
+; RW~969                                  ; Lost fanout        ;
+; RW~905                                  ; Lost fanout        ;
+; RW~841                                  ; Lost fanout        ;
+; RW~1033                                 ; Lost fanout        ;
+; RW~217                                  ; Lost fanout        ;
+; RW~241                                  ; Lost fanout        ;
+; RW~209                                  ; Lost fanout        ;
+; RW~249                                  ; Lost fanout        ;
+; RW~169                                  ; Lost fanout        ;
+; RW~193                                  ; Lost fanout        ;
+; RW~161                                  ; Lost fanout        ;
+; RW~201                                  ; Lost fanout        ;
+; RW~153                                  ; Lost fanout        ;
+; RW~177                                  ; Lost fanout        ;
+; RW~145                                  ; Lost fanout        ;
+; RW~185                                  ; Lost fanout        ;
+; RW~233                                  ; Lost fanout        ;
+; RW~257                                  ; Lost fanout        ;
+; RW~225                                  ; Lost fanout        ;
+; RW~265                                  ; Lost fanout        ;
+; RW~297                                  ; Lost fanout        ;
+; RW~353                                  ; Lost fanout        ;
+; RW~289                                  ; Lost fanout        ;
+; RW~361                                  ; Lost fanout        ;
+; RW~369                                  ; Lost fanout        ;
+; RW~313                                  ; Lost fanout        ;
+; RW~305                                  ; Lost fanout        ;
+; RW~377                                  ; Lost fanout        ;
+; RW~337                                  ; Lost fanout        ;
+; RW~281                                  ; Lost fanout        ;
+; RW~273                                  ; Lost fanout        ;
+; RW~345                                  ; Lost fanout        ;
+; RW~385                                  ; Lost fanout        ;
+; RW~329                                  ; Lost fanout        ;
+; RW~321                                  ; Lost fanout        ;
+; RW~393                                  ; Lost fanout        ;
+; RW~57                                   ; Lost fanout        ;
+; RW~65                                   ; Lost fanout        ;
+; RW~49                                   ; Lost fanout        ;
+; RW~73                                   ; Lost fanout        ;
+; RW~89                                   ; Lost fanout        ;
+; RW~97                                   ; Lost fanout        ;
+; RW~81                                   ; Lost fanout        ;
+; RW~105                                  ; Lost fanout        ;
+; RW~25                                   ; Lost fanout        ;
+; RW~33                                   ; Lost fanout        ;
+; RW~17                                   ; Lost fanout        ;
+; RW~41                                   ; Lost fanout        ;
+; RW~121                                  ; Lost fanout        ;
+; RW~129                                  ; Lost fanout        ;
+; RW~113                                  ; Lost fanout        ;
+; RW~137                                  ; Lost fanout        ;
+; RW~449                                  ; Lost fanout        ;
+; RW~441                                  ; Lost fanout        ;
+; RW~433                                  ; Lost fanout        ;
+; RW~457                                  ; Lost fanout        ;
+; RW~481                                  ; Lost fanout        ;
+; RW~473                                  ; Lost fanout        ;
+; RW~465                                  ; Lost fanout        ;
+; RW~489                                  ; Lost fanout        ;
+; RW~417                                  ; Lost fanout        ;
+; RW~409                                  ; Lost fanout        ;
+; RW~401                                  ; Lost fanout        ;
+; RW~425                                  ; Lost fanout        ;
+; RW~513                                  ; Lost fanout        ;
+; RW~505                                  ; Lost fanout        ;
+; RW~497                                  ; Lost fanout        ;
+; RW~521                                  ; Lost fanout        ;
+; RW~1881                                 ; Lost fanout        ;
+; RW~1889                                 ; Lost fanout        ;
+; RW~1873                                 ; Lost fanout        ;
+; RW~1897                                 ; Lost fanout        ;
+; RW~1857                                 ; Lost fanout        ;
+; RW~1849                                 ; Lost fanout        ;
+; RW~1841                                 ; Lost fanout        ;
+; RW~1865                                 ; Lost fanout        ;
+; RW~1817                                 ; Lost fanout        ;
+; RW~1825                                 ; Lost fanout        ;
+; RW~1809                                 ; Lost fanout        ;
+; RW~1833                                 ; Lost fanout        ;
+; RW~1921                                 ; Lost fanout        ;
+; RW~1913                                 ; Lost fanout        ;
+; RW~1905                                 ; Lost fanout        ;
+; RW~1929                                 ; Lost fanout        ;
+; RW~2009                                 ; Lost fanout        ;
+; RW~1977                                 ; Lost fanout        ;
+; RW~1945                                 ; Lost fanout        ;
+; RW~2041                                 ; Lost fanout        ;
+; RW~1985                                 ; Lost fanout        ;
+; RW~2017                                 ; Lost fanout        ;
+; RW~1953                                 ; Lost fanout        ;
+; RW~2049                                 ; Lost fanout        ;
+; RW~1969                                 ; Lost fanout        ;
+; RW~2001                                 ; Lost fanout        ;
+; RW~1937                                 ; Lost fanout        ;
+; RW~2033                                 ; Lost fanout        ;
+; RW~2025                                 ; Lost fanout        ;
+; RW~1993                                 ; Lost fanout        ;
+; RW~1961                                 ; Lost fanout        ;
+; RW~2057                                 ; Lost fanout        ;
+; RW~589                                  ; Lost fanout        ;
+; RW~701                                  ; Lost fanout        ;
+; RW~573                                  ; Lost fanout        ;
+; RW~717                                  ; Lost fanout        ;
+; RW~949                                  ; Lost fanout        ;
+; RW~837                                  ; Lost fanout        ;
+; RW~821                                  ; Lost fanout        ;
+; RW~965                                  ; Lost fanout        ;
+; RW~693                                  ; Lost fanout        ;
+; RW~581                                  ; Lost fanout        ;
+; RW~565                                  ; Lost fanout        ;
+; RW~709                                  ; Lost fanout        ;
+; RW~845                                  ; Lost fanout        ;
+; RW~957                                  ; Lost fanout        ;
+; RW~829                                  ; Lost fanout        ;
+; RW~973                                  ; Lost fanout        ;
+; RW~861                                  ; Lost fanout        ;
+; RW~981                                  ; Lost fanout        ;
+; RW~853                                  ; Lost fanout        ;
+; RW~989                                  ; Lost fanout        ;
+; RW~621                                  ; Lost fanout        ;
+; RW~741                                  ; Lost fanout        ;
+; RW~613                                  ; Lost fanout        ;
+; RW~749                                  ; Lost fanout        ;
+; RW~605                                  ; Lost fanout        ;
+; RW~725                                  ; Lost fanout        ;
+; RW~597                                  ; Lost fanout        ;
+; RW~733                                  ; Lost fanout        ;
+; RW~877                                  ; Lost fanout        ;
+; RW~997                                  ; Lost fanout        ;
+; RW~869                                  ; Lost fanout        ;
+; RW~1005                                 ; Lost fanout        ;
+; RW~557                                  ; Lost fanout        ;
+; RW~677                                  ; Lost fanout        ;
+; RW~549                                  ; Lost fanout        ;
+; RW~685                                  ; Lost fanout        ;
+; RW~917                                  ; Lost fanout        ;
+; RW~797                                  ; Lost fanout        ;
+; RW~789                                  ; Lost fanout        ;
+; RW~925                                  ; Lost fanout        ;
+; RW~661                                  ; Lost fanout        ;
+; RW~541                                  ; Lost fanout        ;
+; RW~533                                  ; Lost fanout        ;
+; RW~669                                  ; Lost fanout        ;
+; RW~813                                  ; Lost fanout        ;
+; RW~933                                  ; Lost fanout        ;
+; RW~805                                  ; Lost fanout        ;
+; RW~941                                  ; Lost fanout        ;
+; RW~901                                  ; Lost fanout        ;
+; RW~773                                  ; Lost fanout        ;
+; RW~645                                  ; Lost fanout        ;
+; RW~1029                                 ; Lost fanout        ;
+; RW~893                                  ; Lost fanout        ;
+; RW~765                                  ; Lost fanout        ;
+; RW~637                                  ; Lost fanout        ;
+; RW~1021                                 ; Lost fanout        ;
+; RW~885                                  ; Lost fanout        ;
+; RW~757                                  ; Lost fanout        ;
+; RW~629                                  ; Lost fanout        ;
+; RW~1013                                 ; Lost fanout        ;
+; RW~909                                  ; Lost fanout        ;
+; RW~781                                  ; Lost fanout        ;
+; RW~653                                  ; Lost fanout        ;
+; RW~1037                                 ; Lost fanout        ;
+; RW~469                                  ; Lost fanout        ;
+; RW~349                                  ; Lost fanout        ;
+; RW~341                                  ; Lost fanout        ;
+; RW~477                                  ; Lost fanout        ;
+; RW~317                                  ; Lost fanout        ;
+; RW~437                                  ; Lost fanout        ;
+; RW~309                                  ; Lost fanout        ;
+; RW~445                                  ; Lost fanout        ;
+; RW~405                                  ; Lost fanout        ;
+; RW~285                                  ; Lost fanout        ;
+; RW~277                                  ; Lost fanout        ;
+; RW~413                                  ; Lost fanout        ;
+; RW~381                                  ; Lost fanout        ;
+; RW~501                                  ; Lost fanout        ;
+; RW~373                                  ; Lost fanout        ;
+; RW~509                                  ; Lost fanout        ;
+; RW~197                                  ; Lost fanout        ;
+; RW~77                                   ; Lost fanout        ;
+; RW~69                                   ; Lost fanout        ;
+; RW~205                                  ; Lost fanout        ;
+; RW~229                                  ; Lost fanout        ;
+; RW~109                                  ; Lost fanout        ;
+; RW~101                                  ; Lost fanout        ;
+; RW~237                                  ; Lost fanout        ;
+; RW~165                                  ; Lost fanout        ;
+; RW~45                                   ; Lost fanout        ;
+; RW~37                                   ; Lost fanout        ;
+; RW~173                                  ; Lost fanout        ;
+; RW~261                                  ; Lost fanout        ;
+; RW~141                                  ; Lost fanout        ;
+; RW~133                                  ; Lost fanout        ;
+; RW~269                                  ; Lost fanout        ;
+; RW~213                                  ; Lost fanout        ;
+; RW~93                                   ; Lost fanout        ;
+; RW~85                                   ; Lost fanout        ;
+; RW~221                                  ; Lost fanout        ;
+; RW~181                                  ; Lost fanout        ;
+; RW~61                                   ; Lost fanout        ;
+; RW~53                                   ; Lost fanout        ;
+; RW~189                                  ; Lost fanout        ;
+; RW~149                                  ; Lost fanout        ;
+; RW~29                                   ; Lost fanout        ;
+; RW~21                                   ; Lost fanout        ;
+; RW~157                                  ; Lost fanout        ;
+; RW~245                                  ; Lost fanout        ;
+; RW~125                                  ; Lost fanout        ;
+; RW~117                                  ; Lost fanout        ;
+; RW~253                                  ; Lost fanout        ;
+; RW~333                                  ; Lost fanout        ;
+; RW~453                                  ; Lost fanout        ;
+; RW~325                                  ; Lost fanout        ;
+; RW~461                                  ; Lost fanout        ;
+; RW~485                                  ; Lost fanout        ;
+; RW~365                                  ; Lost fanout        ;
+; RW~357                                  ; Lost fanout        ;
+; RW~493                                  ; Lost fanout        ;
+; RW~421                                  ; Lost fanout        ;
+; RW~301                                  ; Lost fanout        ;
+; RW~293                                  ; Lost fanout        ;
+; RW~429                                  ; Lost fanout        ;
+; RW~397                                  ; Lost fanout        ;
+; RW~517                                  ; Lost fanout        ;
+; RW~389                                  ; Lost fanout        ;
+; RW~525                                  ; Lost fanout        ;
+; RW~1893                                 ; Lost fanout        ;
+; RW~2005                                 ; Lost fanout        ;
+; RW~1877                                 ; Lost fanout        ;
+; RW~2021                                 ; Lost fanout        ;
+; RW~1901                                 ; Lost fanout        ;
+; RW~2013                                 ; Lost fanout        ;
+; RW~1885                                 ; Lost fanout        ;
+; RW~2029                                 ; Lost fanout        ;
+; Total Number of Removed Registers = 296 ;                    ;
++-----------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1760  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1760  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |rw_96x8_sync|data_out[0]~reg0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Wed May 25 07:43:41 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rw_96x8_sync -c rw_96x8_sync
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file rw_96x8_sync.vhd
+    Info (12022): Found design unit 1: rw_96x8_sync-arch_rw_96x8_sync
+    Info (12023): Found entity 1: rw_96x8_sync
+Info (12127): Elaborating entity "rw_96x8_sync" for the top level hierarchy
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "RW" is uninferred due to asynchronous read logic
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 296 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3245 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 3219 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4701 megabytes
+    Info: Processing ended: Wed May 25 07:43:47 2022
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:06
+
+

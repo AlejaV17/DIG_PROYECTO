@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\proyecto\ram_test\simulation\qsim
+vram_test
+Z1 IBBDOC`Sj58fEcKJ4KGX@k2
+Z2 VSQYC2=4EMG91<QYO9TINR2
+Z3 dC:\Users\UsuarioPC\Desktop\MARY\Semestre_6\DIG_II\DIGII_PROYECTOI\DIGII_PROYECTOI\ram_test\simulation\qsim
+Z4 w1654048025
+Z5 8ram_test.vo
+Z6 Fram_test.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|ram_test.vo|
+Z9 o-work work -O0
+!i10b 1
+Z10 !s100 ;ZfPU6I:R5dNMK1UdI69i3
+!s85 0
+Z11 !s108 1654048027.065000
+Z12 !s107 ram_test.vo|
+!s101 -O0
+vram_test_vlg_check_tst
+!i10b 1
+Z13 !s100 5WgBFiUB=gdhE<8n6U^N83
+Z14 IeIcX`m9b`M9dH7:VHiPkB3
+Z15 VR[=V13VCheUYAnTa`Wd][2
+R3
+Z16 w1654048022
+Z17 8Waveform1.vwf.vt
+Z18 FWaveform1.vwf.vt
+L0 63
+R7
+r1
+!s85 0
+31
+Z19 !s108 1654048027.831000
+Z20 !s107 Waveform1.vwf.vt|
+Z21 !s90 -work|work|Waveform1.vwf.vt|
+!s101 -O0
+R9
+vram_test_vlg_sample_tst
+!i10b 1
+Z22 !s100 S`W:4DV`I5KcmGLAJ9b7B3
+Z23 I:oO:lVRXMMHRQ1fMzhHT=1
+Z24 V98530hBj4DEC>M[a3FYI10
+R3
+R16
+R17
+R18
+L0 29
+R7
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R9
+vram_test_vlg_vec_tst
+!i10b 1
+!s100 G8BId1>CjWmPnm>8[1iJ31
+I<F:2P7z>gL90ASiLY67Wo1
+Z25 VlHENh8hoS9:jnL[=SomS>3
+R3
+R16
+R17
+R18
+Z26 L0 435
+R7
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R9

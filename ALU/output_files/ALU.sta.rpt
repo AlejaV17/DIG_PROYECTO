@@ -1,0 +1,1296 @@
+TimeQuest Timing Analyzer report for ALU
+Wed Jun 01 08:18:04 2022
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'ALU_Sel[1]'
+ 13. Slow 1200mV 85C Model Hold: 'ALU_Sel[1]'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'ALU_Sel[1]'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'ALU_Sel[1]'
+ 27. Slow 1200mV 0C Model Hold: 'ALU_Sel[1]'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'ALU_Sel[1]'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'ALU_Sel[1]'
+ 40. Fast 1200mV 0C Model Hold: 'ALU_Sel[1]'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'ALU_Sel[1]'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Slow Corner Signal Integrity Metrics
+ 55. Fast Corner Signal Integrity Metrics
+ 56. Setup Transfers
+ 57. Hold Transfers
+ 58. Report TCCS
+ 59. Report RSKM
+ 60. Unconstrained Paths
+ 61. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name      ; ALU                                                ;
+; Device Family      ; Cyclone III                                        ;
+; Device Name        ; EP3C16F484C6                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Combined                                           ;
+; Rise/Fall Delays   ; Enabled                                            ;
++--------------------+----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                 ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets        ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------+
+; ALU_Sel[1] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { ALU_Sel[1] } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 382.26 MHz ; 250.0 MHz       ; ALU_Sel[1] ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++------------+--------+---------------+
+; Clock      ; Slack  ; End Point TNS ;
++------------+--------+---------------+
+; ALU_Sel[1] ; -0.808 ; -6.078        ;
++------------+--------+---------------+
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Hold Summary  ;
++------------+--------+---------------+
+; Clock      ; Slack  ; End Point TNS ;
++------------+--------+---------------+
+; ALU_Sel[1] ; -0.725 ; -5.526        ;
++------------+--------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++------------+--------+-----------------------------+
+; Clock      ; Slack  ; End Point TNS               ;
++------------+--------+-----------------------------+
+; ALU_Sel[1] ; -3.000 ; -3.000                      ;
++------------+--------+-----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'ALU_Sel[1]'                                                                       ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -0.808 ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.595      ; 4.118      ;
+; -0.764 ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.587      ; 4.071      ;
+; -0.740 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.736      ; 4.084      ;
+; -0.717 ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.690      ; 4.014      ;
+; -0.693 ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.557      ; 3.967      ;
+; -0.634 ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.592      ; 3.945      ;
+; -0.628 ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.593      ; 4.100      ;
+; -0.594 ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.588      ; 4.061      ;
+; -0.500 ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.595      ; 3.973      ;
+; -0.200 ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.595      ; 4.010      ;
+; -0.191 ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.592      ; 4.002      ;
+; -0.156 ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.587      ; 3.963      ;
+; -0.132 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.736      ; 3.976      ;
+; -0.085 ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.557      ; 3.859      ;
+; -0.058 ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.690      ; 3.855      ;
+; -0.020 ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.593      ; 3.992      ;
+; 0.014  ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.588      ; 3.953      ;
+; 0.079  ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.595      ; 3.894      ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'ALU_Sel[1]'                                                                        ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -0.725 ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.822      ; 3.097      ;
+; -0.701 ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.716      ; 3.015      ;
+; -0.682 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.870      ; 3.188      ;
+; -0.633 ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.721      ; 3.088      ;
+; -0.622 ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.715      ; 3.093      ;
+; -0.613 ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.724      ; 3.111      ;
+; -0.528 ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.721      ; 3.193      ;
+; -0.512 ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.684      ; 3.172      ;
+; -0.510 ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.723      ; 3.213      ;
+; -0.086 ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.822      ; 3.256      ;
+; -0.062 ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.716      ; 3.174      ;
+; -0.039 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.870      ; 3.351      ;
+; 0.005  ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.715      ; 3.240      ;
+; 0.006  ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.721      ; 3.247      ;
+; 0.007  ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.724      ; 3.251      ;
+; 0.109  ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.723      ; 3.352      ;
+; 0.111  ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.721      ; 3.352      ;
+; 0.118  ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.684      ; 3.322      ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'ALU_Sel[1]'                                                         ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]                ;
+; 0.314  ; 0.314        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[1]$latch             ;
+; 0.314  ; 0.314        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[3]$latch             ;
+; 0.315  ; 0.315        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[3]$latch       ;
+; 0.315  ; 0.315        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[5]$latch       ;
+; 0.321  ; 0.321        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[0]$latch       ;
+; 0.321  ; 0.321        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[4]$latch       ;
+; 0.321  ; 0.321        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|inclk[0]  ;
+; 0.321  ; 0.321        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|outclk    ;
+; 0.322  ; 0.322        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[1]$latch       ;
+; 0.322  ; 0.322        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[2]$latch       ;
+; 0.322  ; 0.322        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[2]$latch             ;
+; 0.331  ; 0.331        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1|combout          ;
+; 0.334  ; 0.334        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[1]$latch|datad       ;
+; 0.334  ; 0.334        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[3]$latch|datad       ;
+; 0.335  ; 0.335        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[3]$latch|datad ;
+; 0.335  ; 0.335        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[5]$latch|datad ;
+; 0.337  ; 0.337        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|o        ;
+; 0.338  ; 0.338        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[6]$latch|datac ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[6]$latch       ;
+; 0.340  ; 0.340        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; Equal0~1|datad            ;
+; 0.341  ; 0.341        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[0]$latch|datad ;
+; 0.341  ; 0.341        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[4]$latch|datad ;
+; 0.342  ; 0.342        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[1]$latch|datad ;
+; 0.342  ; 0.342        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[2]$latch|datad ;
+; 0.342  ; 0.342        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[0]$latch|datac       ;
+; 0.342  ; 0.342        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[2]$latch|datad       ;
+; 0.343  ; 0.343        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[0]$latch             ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|i        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|i        ;
+; 0.657  ; 0.657        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[0]$latch|datad ;
+; 0.657  ; 0.657        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[4]$latch|datad ;
+; 0.657  ; 0.657        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[0]$latch             ;
+; 0.658  ; 0.658        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[1]$latch|datad ;
+; 0.658  ; 0.658        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[2]$latch|datad ;
+; 0.658  ; 0.658        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[0]$latch|datac       ;
+; 0.658  ; 0.658        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[2]$latch|datad       ;
+; 0.660  ; 0.660        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; Equal0~1|datad            ;
+; 0.661  ; 0.661        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[6]$latch       ;
+; 0.662  ; 0.662        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[6]$latch|datac ;
+; 0.663  ; 0.663        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|o        ;
+; 0.665  ; 0.665        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[3]$latch|datad ;
+; 0.665  ; 0.665        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[5]$latch|datad ;
+; 0.665  ; 0.665        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[1]$latch|datad       ;
+; 0.665  ; 0.665        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[3]$latch|datad       ;
+; 0.669  ; 0.669        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1|combout          ;
+; 0.677  ; 0.677        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[0]$latch       ;
+; 0.677  ; 0.677        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[4]$latch       ;
+; 0.678  ; 0.678        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[1]$latch       ;
+; 0.678  ; 0.678        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[2]$latch       ;
+; 0.678  ; 0.678        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[2]$latch             ;
+; 0.679  ; 0.679        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|inclk[0]  ;
+; 0.679  ; 0.679        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|outclk    ;
+; 0.685  ; 0.685        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[3]$latch       ;
+; 0.685  ; 0.685        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[5]$latch       ;
+; 0.685  ; 0.685        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[1]$latch             ;
+; 0.685  ; 0.685        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[3]$latch             ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; A[*]        ; ALU_Sel[1] ; 5.110 ; 5.322 ; Rise       ; ALU_Sel[1]      ;
+;  A[0]       ; ALU_Sel[1] ; 5.110 ; 5.322 ; Rise       ; ALU_Sel[1]      ;
+;  A[1]       ; ALU_Sel[1] ; 4.613 ; 5.076 ; Rise       ; ALU_Sel[1]      ;
+;  A[2]       ; ALU_Sel[1] ; 5.047 ; 5.227 ; Rise       ; ALU_Sel[1]      ;
+;  A[3]       ; ALU_Sel[1] ; 4.616 ; 5.060 ; Rise       ; ALU_Sel[1]      ;
+;  A[4]       ; ALU_Sel[1] ; 4.647 ; 4.862 ; Rise       ; ALU_Sel[1]      ;
+;  A[5]       ; ALU_Sel[1] ; 4.755 ; 5.208 ; Rise       ; ALU_Sel[1]      ;
+;  A[6]       ; ALU_Sel[1] ; 4.794 ; 4.991 ; Rise       ; ALU_Sel[1]      ;
+;  A[7]       ; ALU_Sel[1] ; 4.043 ; 4.467 ; Rise       ; ALU_Sel[1]      ;
+; ALU_Sel[*]  ; ALU_Sel[1] ; 3.661 ; 4.082 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[0] ; ALU_Sel[1] ; 3.661 ; 4.082 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[1] ; ALU_Sel[1] ; 1.180 ; 1.288 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[2] ; ALU_Sel[1] ; 3.390 ; 3.709 ; Rise       ; ALU_Sel[1]      ;
+; B[*]        ; ALU_Sel[1] ; 5.026 ; 5.473 ; Rise       ; ALU_Sel[1]      ;
+;  B[0]       ; ALU_Sel[1] ; 4.876 ; 5.071 ; Rise       ; ALU_Sel[1]      ;
+;  B[1]       ; ALU_Sel[1] ; 5.026 ; 5.473 ; Rise       ; ALU_Sel[1]      ;
+;  B[2]       ; ALU_Sel[1] ; 4.770 ; 4.976 ; Rise       ; ALU_Sel[1]      ;
+;  B[3]       ; ALU_Sel[1] ; 4.427 ; 4.867 ; Rise       ; ALU_Sel[1]      ;
+;  B[4]       ; ALU_Sel[1] ; 4.667 ; 4.858 ; Rise       ; ALU_Sel[1]      ;
+;  B[5]       ; ALU_Sel[1] ; 4.467 ; 4.905 ; Rise       ; ALU_Sel[1]      ;
+;  B[6]       ; ALU_Sel[1] ; 4.590 ; 4.805 ; Rise       ; ALU_Sel[1]      ;
+;  B[7]       ; ALU_Sel[1] ; 4.286 ; 4.733 ; Rise       ; ALU_Sel[1]      ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; A[*]        ; ALU_Sel[1] ; -0.676 ; -1.079 ; Rise       ; ALU_Sel[1]      ;
+;  A[0]       ; ALU_Sel[1] ; -1.337 ; -1.716 ; Rise       ; ALU_Sel[1]      ;
+;  A[1]       ; ALU_Sel[1] ; -1.022 ; -1.409 ; Rise       ; ALU_Sel[1]      ;
+;  A[2]       ; ALU_Sel[1] ; -1.192 ; -1.576 ; Rise       ; ALU_Sel[1]      ;
+;  A[3]       ; ALU_Sel[1] ; -1.188 ; -1.575 ; Rise       ; ALU_Sel[1]      ;
+;  A[4]       ; ALU_Sel[1] ; -0.723 ; -1.103 ; Rise       ; ALU_Sel[1]      ;
+;  A[5]       ; ALU_Sel[1] ; -1.114 ; -1.497 ; Rise       ; ALU_Sel[1]      ;
+;  A[6]       ; ALU_Sel[1] ; -0.676 ; -1.079 ; Rise       ; ALU_Sel[1]      ;
+;  A[7]       ; ALU_Sel[1] ; -0.725 ; -1.148 ; Rise       ; ALU_Sel[1]      ;
+; ALU_Sel[*]  ; ALU_Sel[1] ; 0.725  ; 0.566  ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[0] ; ALU_Sel[1] ; -1.197 ; -1.632 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[1] ; ALU_Sel[1] ; 0.725  ; 0.566  ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[2] ; ALU_Sel[1] ; -1.080 ; -1.493 ; Rise       ; ALU_Sel[1]      ;
+; B[*]        ; ALU_Sel[1] ; -1.083 ; -1.543 ; Rise       ; ALU_Sel[1]      ;
+;  B[0]       ; ALU_Sel[1] ; -1.574 ; -1.963 ; Rise       ; ALU_Sel[1]      ;
+;  B[1]       ; ALU_Sel[1] ; -1.925 ; -2.360 ; Rise       ; ALU_Sel[1]      ;
+;  B[2]       ; ALU_Sel[1] ; -1.523 ; -1.899 ; Rise       ; ALU_Sel[1]      ;
+;  B[3]       ; ALU_Sel[1] ; -1.243 ; -1.631 ; Rise       ; ALU_Sel[1]      ;
+;  B[4]       ; ALU_Sel[1] ; -1.456 ; -1.943 ; Rise       ; ALU_Sel[1]      ;
+;  B[5]       ; ALU_Sel[1] ; -1.306 ; -1.705 ; Rise       ; ALU_Sel[1]      ;
+;  B[6]       ; ALU_Sel[1] ; -1.338 ; -1.751 ; Rise       ; ALU_Sel[1]      ;
+;  B[7]       ; ALU_Sel[1] ; -1.083 ; -1.543 ; Rise       ; ALU_Sel[1]      ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Clock to Output Times                                                      ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ALU_Result[*]  ; ALU_Sel[1] ; 8.002 ; 8.069 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[0] ; ALU_Sel[1] ; 6.311 ; 6.244 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[1] ; ALU_Sel[1] ; 6.776 ; 6.712 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[2] ; ALU_Sel[1] ; 6.571 ; 6.509 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[3] ; ALU_Sel[1] ; 6.508 ; 6.432 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[4] ; ALU_Sel[1] ; 8.002 ; 8.054 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[5] ; ALU_Sel[1] ; 6.285 ; 6.219 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[6] ; ALU_Sel[1] ; 6.916 ; 6.847 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[7] ; ALU_Sel[1] ; 7.985 ; 8.069 ; Rise       ; ALU_Sel[1]      ;
+; NZVC[*]        ; ALU_Sel[1] ; 7.985 ; 8.069 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[0]       ; ALU_Sel[1] ; 6.899 ; 6.829 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[1]       ; ALU_Sel[1] ; 6.440 ; 6.369 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[2]       ; ALU_Sel[1] ; 6.796 ; 6.727 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[3]       ; ALU_Sel[1] ; 7.985 ; 8.069 ; Rise       ; ALU_Sel[1]      ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                              ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ALU_Result[*]  ; ALU_Sel[1] ; 6.137 ; 6.072 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[0] ; ALU_Sel[1] ; 6.162 ; 6.095 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[1] ; ALU_Sel[1] ; 6.608 ; 6.545 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[2] ; ALU_Sel[1] ; 6.413 ; 6.352 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[3] ; ALU_Sel[1] ; 6.350 ; 6.276 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[4] ; ALU_Sel[1] ; 7.835 ; 7.889 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[5] ; ALU_Sel[1] ; 6.137 ; 6.072 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[6] ; ALU_Sel[1] ; 6.743 ; 6.675 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[7] ; ALU_Sel[1] ; 7.769 ; 7.847 ; Rise       ; ALU_Sel[1]      ;
+; NZVC[*]        ; ALU_Sel[1] ; 6.285 ; 6.215 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[0]       ; ALU_Sel[1] ; 6.726 ; 6.658 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[1]       ; ALU_Sel[1] ; 6.285 ; 6.215 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[2]       ; ALU_Sel[1] ; 6.627 ; 6.560 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[3]       ; ALU_Sel[1] ; 7.769 ; 7.847 ; Rise       ; ALU_Sel[1]      ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 423.37 MHz ; 250.0 MHz       ; ALU_Sel[1] ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------+
+; Slow 1200mV 0C Model Setup Summary  ;
++------------+--------+---------------+
+; Clock      ; Slack  ; End Point TNS ;
++------------+--------+---------------+
+; ALU_Sel[1] ; -0.681 ; -5.154        ;
++------------+--------+---------------+
+
+
++-------------------------------------+
+; Slow 1200mV 0C Model Hold Summary   ;
++------------+--------+---------------+
+; Clock      ; Slack  ; End Point TNS ;
++------------+--------+---------------+
+; ALU_Sel[1] ; -0.603 ; -4.690        ;
++------------+--------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++------------+--------+----------------------------+
+; Clock      ; Slack  ; End Point TNS              ;
++------------+--------+----------------------------+
+; ALU_Sel[1] ; -3.000 ; -3.000                     ;
++------------+--------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'ALU_Sel[1]'                                                                        ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -0.681 ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.282      ; 3.760      ;
+; -0.649 ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.277      ; 3.728      ;
+; -0.625 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.412      ; 3.739      ;
+; -0.596 ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.370      ; 3.668      ;
+; -0.567 ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.248      ; 3.613      ;
+; -0.537 ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.279      ; 3.616      ;
+; -0.535 ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.280      ; 3.749      ;
+; -0.510 ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.278      ; 3.722      ;
+; -0.454 ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 3.281      ; 3.668      ;
+; -0.083 ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.282      ; 3.662      ;
+; -0.082 ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.279      ; 3.661      ;
+; -0.027 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.412      ; 3.641      ;
+; -0.014 ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.277      ; 3.593      ;
+; 0.048  ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.248      ; 3.498      ;
+; 0.049  ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.370      ; 3.523      ;
+; 0.063  ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.280      ; 3.651      ;
+; 0.128  ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.278      ; 3.584      ;
+; 0.180  ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 3.281      ; 3.534      ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'ALU_Sel[1]'                                                                         ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -0.603 ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.487      ; 2.884      ;
+; -0.601 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.531      ; 2.930      ;
+; -0.592 ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.390      ; 2.798      ;
+; -0.540 ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.391      ; 2.851      ;
+; -0.535 ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.389      ; 2.854      ;
+; -0.523 ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.394      ; 2.871      ;
+; -0.439 ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.391      ; 2.952      ;
+; -0.435 ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.393      ; 2.958      ;
+; -0.422 ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 3.359      ; 2.937      ;
+; 0.010  ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.487      ; 3.017      ;
+; 0.015  ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.390      ; 2.925      ;
+; 0.038  ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.531      ; 3.089      ;
+; 0.066  ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.391      ; 2.977      ;
+; 0.101  ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.389      ; 3.010      ;
+; 0.117  ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.394      ; 3.031      ;
+; 0.168  ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.391      ; 3.079      ;
+; 0.185  ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.359      ; 3.064      ;
+; 0.188  ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 3.393      ; 3.101      ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'ALU_Sel[1]'                                                          ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]                ;
+; 0.314  ; 0.314        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[1]$latch             ;
+; 0.314  ; 0.314        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[3]$latch             ;
+; 0.316  ; 0.316        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[3]$latch       ;
+; 0.316  ; 0.316        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[5]$latch       ;
+; 0.320  ; 0.320        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[1]$latch       ;
+; 0.320  ; 0.320        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[2]$latch       ;
+; 0.320  ; 0.320        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[2]$latch             ;
+; 0.321  ; 0.321        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[0]$latch       ;
+; 0.321  ; 0.321        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[4]$latch       ;
+; 0.333  ; 0.333        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|inclk[0]  ;
+; 0.333  ; 0.333        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|outclk    ;
+; 0.337  ; 0.337        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|o        ;
+; 0.338  ; 0.338        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[6]$latch       ;
+; 0.338  ; 0.338        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[1]$latch|datad       ;
+; 0.338  ; 0.338        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[3]$latch|datad       ;
+; 0.339  ; 0.339        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[3]$latch|datad ;
+; 0.339  ; 0.339        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[5]$latch|datad ;
+; 0.340  ; 0.340        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[6]$latch|datac ;
+; 0.344  ; 0.344        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[0]$latch|datad ;
+; 0.344  ; 0.344        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[1]$latch|datad ;
+; 0.344  ; 0.344        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[2]$latch|datad ;
+; 0.344  ; 0.344        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[4]$latch|datad ;
+; 0.344  ; 0.344        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[2]$latch|datad       ;
+; 0.345  ; 0.345        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[0]$latch             ;
+; 0.347  ; 0.347        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[0]$latch|datac       ;
+; 0.354  ; 0.354        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1|combout          ;
+; 0.364  ; 0.364        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; Equal0~1|datad            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|i        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|i        ;
+; 0.635  ; 0.635        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; Equal0~1|datad            ;
+; 0.645  ; 0.645        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1|combout          ;
+; 0.652  ; 0.652        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[0]$latch|datac       ;
+; 0.654  ; 0.654        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[0]$latch             ;
+; 0.655  ; 0.655        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[0]$latch|datad ;
+; 0.655  ; 0.655        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[4]$latch|datad ;
+; 0.656  ; 0.656        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[1]$latch|datad ;
+; 0.656  ; 0.656        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[2]$latch|datad ;
+; 0.656  ; 0.656        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[2]$latch|datad       ;
+; 0.659  ; 0.659        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[6]$latch|datac ;
+; 0.660  ; 0.660        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[3]$latch|datad ;
+; 0.660  ; 0.660        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[5]$latch|datad ;
+; 0.661  ; 0.661        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[6]$latch       ;
+; 0.662  ; 0.662        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[1]$latch|datad       ;
+; 0.662  ; 0.662        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[3]$latch|datad       ;
+; 0.663  ; 0.663        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|o        ;
+; 0.667  ; 0.667        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|inclk[0]  ;
+; 0.667  ; 0.667        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|outclk    ;
+; 0.678  ; 0.678        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[0]$latch       ;
+; 0.678  ; 0.678        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[1]$latch       ;
+; 0.678  ; 0.678        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[2]$latch       ;
+; 0.678  ; 0.678        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[4]$latch       ;
+; 0.678  ; 0.678        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[2]$latch             ;
+; 0.683  ; 0.683        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[3]$latch       ;
+; 0.683  ; 0.683        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[5]$latch       ;
+; 0.684  ; 0.684        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[1]$latch             ;
+; 0.684  ; 0.684        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[3]$latch             ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; A[*]        ; ALU_Sel[1] ; 4.486 ; 4.656 ; Rise       ; ALU_Sel[1]      ;
+;  A[0]       ; ALU_Sel[1] ; 4.486 ; 4.656 ; Rise       ; ALU_Sel[1]      ;
+;  A[1]       ; ALU_Sel[1] ; 4.032 ; 4.430 ; Rise       ; ALU_Sel[1]      ;
+;  A[2]       ; ALU_Sel[1] ; 4.434 ; 4.570 ; Rise       ; ALU_Sel[1]      ;
+;  A[3]       ; ALU_Sel[1] ; 4.056 ; 4.414 ; Rise       ; ALU_Sel[1]      ;
+;  A[4]       ; ALU_Sel[1] ; 4.076 ; 4.249 ; Rise       ; ALU_Sel[1]      ;
+;  A[5]       ; ALU_Sel[1] ; 4.201 ; 4.548 ; Rise       ; ALU_Sel[1]      ;
+;  A[6]       ; ALU_Sel[1] ; 4.231 ; 4.377 ; Rise       ; ALU_Sel[1]      ;
+;  A[7]       ; ALU_Sel[1] ; 3.566 ; 3.905 ; Rise       ; ALU_Sel[1]      ;
+; ALU_Sel[*]  ; ALU_Sel[1] ; 3.175 ; 3.534 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[0] ; ALU_Sel[1] ; 3.175 ; 3.534 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[1] ; ALU_Sel[1] ; 1.063 ; 1.161 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[2] ; ALU_Sel[1] ; 2.927 ; 3.204 ; Rise       ; ALU_Sel[1]      ;
+; B[*]        ; ALU_Sel[1] ; 4.433 ; 4.772 ; Rise       ; ALU_Sel[1]      ;
+;  B[0]       ; ALU_Sel[1] ; 4.264 ; 4.425 ; Rise       ; ALU_Sel[1]      ;
+;  B[1]       ; ALU_Sel[1] ; 4.433 ; 4.772 ; Rise       ; ALU_Sel[1]      ;
+;  B[2]       ; ALU_Sel[1] ; 4.175 ; 4.352 ; Rise       ; ALU_Sel[1]      ;
+;  B[3]       ; ALU_Sel[1] ; 3.878 ; 4.245 ; Rise       ; ALU_Sel[1]      ;
+;  B[4]       ; ALU_Sel[1] ; 4.089 ; 4.255 ; Rise       ; ALU_Sel[1]      ;
+;  B[5]       ; ALU_Sel[1] ; 3.915 ; 4.278 ; Rise       ; ALU_Sel[1]      ;
+;  B[6]       ; ALU_Sel[1] ; 4.029 ; 4.181 ; Rise       ; ALU_Sel[1]      ;
+;  B[7]       ; ALU_Sel[1] ; 3.781 ; 4.124 ; Rise       ; ALU_Sel[1]      ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; A[*]        ; ALU_Sel[1] ; -0.541 ; -0.856 ; Rise       ; ALU_Sel[1]      ;
+;  A[0]       ; ALU_Sel[1] ; -1.128 ; -1.439 ; Rise       ; ALU_Sel[1]      ;
+;  A[1]       ; ALU_Sel[1] ; -0.840 ; -1.157 ; Rise       ; ALU_Sel[1]      ;
+;  A[2]       ; ALU_Sel[1] ; -1.008 ; -1.311 ; Rise       ; ALU_Sel[1]      ;
+;  A[3]       ; ALU_Sel[1] ; -0.979 ; -1.297 ; Rise       ; ALU_Sel[1]      ;
+;  A[4]       ; ALU_Sel[1] ; -0.567 ; -0.886 ; Rise       ; ALU_Sel[1]      ;
+;  A[5]       ; ALU_Sel[1] ; -0.927 ; -1.240 ; Rise       ; ALU_Sel[1]      ;
+;  A[6]       ; ALU_Sel[1] ; -0.541 ; -0.856 ; Rise       ; ALU_Sel[1]      ;
+;  A[7]       ; ALU_Sel[1] ; -0.587 ; -0.933 ; Rise       ; ALU_Sel[1]      ;
+; ALU_Sel[*]  ; ALU_Sel[1] ; 0.603  ; 0.470  ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[0] ; ALU_Sel[1] ; -1.017 ; -1.359 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[1] ; ALU_Sel[1] ; 0.603  ; 0.470  ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[2] ; ALU_Sel[1] ; -0.898 ; -1.255 ; Rise       ; ALU_Sel[1]      ;
+; B[*]        ; ALU_Sel[1] ; -0.925 ; -1.261 ; Rise       ; ALU_Sel[1]      ;
+;  B[0]       ; ALU_Sel[1] ; -1.344 ; -1.656 ; Rise       ; ALU_Sel[1]      ;
+;  B[1]       ; ALU_Sel[1] ; -1.674 ; -1.980 ; Rise       ; ALU_Sel[1]      ;
+;  B[2]       ; ALU_Sel[1] ; -1.300 ; -1.614 ; Rise       ; ALU_Sel[1]      ;
+;  B[3]       ; ALU_Sel[1] ; -1.044 ; -1.377 ; Rise       ; ALU_Sel[1]      ;
+;  B[4]       ; ALU_Sel[1] ; -1.249 ; -1.634 ; Rise       ; ALU_Sel[1]      ;
+;  B[5]       ; ALU_Sel[1] ; -1.107 ; -1.441 ; Rise       ; ALU_Sel[1]      ;
+;  B[6]       ; ALU_Sel[1] ; -1.100 ; -1.429 ; Rise       ; ALU_Sel[1]      ;
+;  B[7]       ; ALU_Sel[1] ; -0.925 ; -1.261 ; Rise       ; ALU_Sel[1]      ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Clock to Output Times                                                      ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ALU_Result[*]  ; ALU_Sel[1] ; 7.609 ; 7.628 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[0] ; ALU_Sel[1] ; 5.946 ; 5.862 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[1] ; ALU_Sel[1] ; 6.376 ; 6.267 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[2] ; ALU_Sel[1] ; 6.189 ; 6.098 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[3] ; ALU_Sel[1] ; 6.131 ; 6.044 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[4] ; ALU_Sel[1] ; 7.609 ; 7.628 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[5] ; ALU_Sel[1] ; 5.924 ; 5.843 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[6] ; ALU_Sel[1] ; 6.502 ; 6.391 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[7] ; ALU_Sel[1] ; 7.491 ; 7.458 ; Rise       ; ALU_Sel[1]      ;
+; NZVC[*]        ; ALU_Sel[1] ; 7.491 ; 7.458 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[0]       ; ALU_Sel[1] ; 6.490 ; 6.382 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[1]       ; ALU_Sel[1] ; 6.066 ; 5.971 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[2]       ; ALU_Sel[1] ; 6.393 ; 6.291 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[3]       ; ALU_Sel[1] ; 7.491 ; 7.458 ; Rise       ; ALU_Sel[1]      ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                              ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ALU_Result[*]  ; ALU_Sel[1] ; 5.794 ; 5.714 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[0] ; ALU_Sel[1] ; 5.815 ; 5.732 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[1] ; ALU_Sel[1] ; 6.227 ; 6.121 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[2] ; ALU_Sel[1] ; 6.050 ; 5.960 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[3] ; ALU_Sel[1] ; 5.992 ; 5.907 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[4] ; ALU_Sel[1] ; 7.462 ; 7.484 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[5] ; ALU_Sel[1] ; 5.794 ; 5.714 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[6] ; ALU_Sel[1] ; 6.347 ; 6.239 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[7] ; ALU_Sel[1] ; 7.298 ; 7.265 ; Rise       ; ALU_Sel[1]      ;
+; NZVC[*]        ; ALU_Sel[1] ; 5.930 ; 5.837 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[0]       ; ALU_Sel[1] ; 6.336 ; 6.230 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[1]       ; ALU_Sel[1] ; 5.930 ; 5.837 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[2]       ; ALU_Sel[1] ; 6.243 ; 6.143 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[3]       ; ALU_Sel[1] ; 7.298 ; 7.265 ; Rise       ; ALU_Sel[1]      ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------+
+; Fast 1200mV 0C Model Setup Summary  ;
++------------+--------+---------------+
+; Clock      ; Slack  ; End Point TNS ;
++------------+--------+---------------+
+; ALU_Sel[1] ; -0.492 ; -3.824        ;
++------------+--------+---------------+
+
+
++-------------------------------------+
+; Fast 1200mV 0C Model Hold Summary   ;
++------------+--------+---------------+
+; Clock      ; Slack  ; End Point TNS ;
++------------+--------+---------------+
+; ALU_Sel[1] ; -0.523 ; -4.208        ;
++------------+--------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++------------+--------+----------------------------+
+; Clock      ; Slack  ; End Point TNS              ;
++------------+--------+----------------------------+
+; ALU_Sel[1] ; -3.000 ; -3.000                     ;
++------------+--------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'ALU_Sel[1]'                                                                        ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -0.492 ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.063      ; 2.612      ;
+; -0.483 ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.059      ; 2.600      ;
+; -0.467 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.139      ; 2.602      ;
+; -0.445 ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.040      ; 2.541      ;
+; -0.443 ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.110      ; 2.549      ;
+; -0.403 ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.060      ; 2.615      ;
+; -0.396 ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.060      ; 2.513      ;
+; -0.391 ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.060      ; 2.603      ;
+; -0.304 ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.500        ; 2.062      ; 2.518      ;
+; 0.391  ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.060      ; 2.226      ;
+; 0.404  ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.063      ; 2.216      ;
+; 0.413  ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.059      ; 2.204      ;
+; 0.429  ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.139      ; 2.206      ;
+; 0.451  ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.040      ; 2.145      ;
+; 0.471  ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.110      ; 2.135      ;
+; 0.493  ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.060      ; 2.219      ;
+; 0.505  ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.060      ; 2.207      ;
+; 0.543  ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 1.000        ; 2.062      ; 2.171      ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'ALU_Sel[1]'                                                                         ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node  ; To Node             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+; -0.523 ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.133      ; 1.610      ;
+; -0.512 ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.185      ; 1.673      ;
+; -0.510 ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.215      ; 1.705      ;
+; -0.482 ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.133      ; 1.651      ;
+; -0.473 ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.135      ; 1.662      ;
+; -0.473 ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.131      ; 1.658      ;
+; -0.421 ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.132      ; 1.711      ;
+; -0.418 ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.135      ; 1.717      ;
+; -0.396 ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; 0.000        ; 2.112      ; 1.716      ;
+; 0.381  ; ALU_Sel[1] ; ALU_Result[3]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.133      ; 2.034      ;
+; 0.381  ; ALU_Sel[1] ; ALU_Result[6]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.215      ; 2.116      ;
+; 0.392  ; ALU_Sel[1] ; NZVC[0]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.185      ; 2.097      ;
+; 0.417  ; ALU_Sel[1] ; ALU_Result[5]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.131      ; 2.068      ;
+; 0.419  ; ALU_Sel[1] ; ALU_Result[4]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.135      ; 2.074      ;
+; 0.421  ; ALU_Sel[1] ; ALU_Result[2]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.133      ; 2.074      ;
+; 0.473  ; ALU_Sel[1] ; ALU_Result[1]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.135      ; 2.128      ;
+; 0.480  ; ALU_Sel[1] ; ALU_Result[0]$latch ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.132      ; 2.132      ;
+; 0.522  ; ALU_Sel[1] ; NZVC[3]$latch       ; ALU_Sel[1]   ; ALU_Sel[1]  ; -0.500       ; 2.112      ; 2.154      ;
++--------+------------+---------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'ALU_Sel[1]'                                                          ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                    ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]                ;
+; 0.075  ; 0.075        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1|combout          ;
+; 0.081  ; 0.081        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; Equal0~1|datad            ;
+; 0.090  ; 0.090        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|inclk[0]  ;
+; 0.090  ; 0.090        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|outclk    ;
+; 0.114  ; 0.114        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[1]$latch             ;
+; 0.114  ; 0.114        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[3]$latch             ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[5]$latch       ;
+; 0.116  ; 0.116        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[3]$latch       ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[0]$latch       ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[4]$latch       ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|o        ;
+; 0.119  ; 0.119        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[1]$latch       ;
+; 0.119  ; 0.119        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[2]$latch       ;
+; 0.119  ; 0.119        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[1]$latch|datad       ;
+; 0.119  ; 0.119        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[2]$latch             ;
+; 0.119  ; 0.119        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[3]$latch|datad       ;
+; 0.120  ; 0.120        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[5]$latch|datad ;
+; 0.121  ; 0.121        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[3]$latch|datad ;
+; 0.123  ; 0.123        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[0]$latch|datad ;
+; 0.123  ; 0.123        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[4]$latch|datad ;
+; 0.123  ; 0.123        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[0]$latch|datac       ;
+; 0.124  ; 0.124        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[1]$latch|datad ;
+; 0.124  ; 0.124        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[2]$latch|datad ;
+; 0.124  ; 0.124        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; NZVC[2]$latch|datad       ;
+; 0.126  ; 0.126        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Fall       ; ALU_Result[6]$latch|datac ;
+; 0.126  ; 0.126        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; NZVC[0]$latch             ;
+; 0.129  ; 0.129        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Result[6]$latch       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|i        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|i        ;
+; 0.870  ; 0.870        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[6]$latch       ;
+; 0.873  ; 0.873        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[6]$latch|datac ;
+; 0.874  ; 0.874        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[0]$latch             ;
+; 0.875  ; 0.875        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[4]$latch|datad ;
+; 0.876  ; 0.876        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[0]$latch|datad ;
+; 0.876  ; 0.876        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[1]$latch|datad ;
+; 0.876  ; 0.876        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[2]$latch|datad ;
+; 0.876  ; 0.876        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[2]$latch|datad       ;
+; 0.877  ; 0.877        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[0]$latch|datac       ;
+; 0.879  ; 0.879        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[3]$latch|datad ;
+; 0.879  ; 0.879        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[4]$latch       ;
+; 0.879  ; 0.879        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; ALU_Result[5]$latch|datad ;
+; 0.880  ; 0.880        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[0]$latch       ;
+; 0.880  ; 0.880        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[1]$latch       ;
+; 0.880  ; 0.880        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[2]$latch       ;
+; 0.880  ; 0.880        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[2]$latch             ;
+; 0.881  ; 0.881        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[1]$latch|datad       ;
+; 0.881  ; 0.881        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; NZVC[3]$latch|datad       ;
+; 0.882  ; 0.882        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Sel[1]~input|o        ;
+; 0.883  ; 0.883        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[3]$latch       ;
+; 0.883  ; 0.883        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; ALU_Result[5]$latch       ;
+; 0.885  ; 0.885        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[1]$latch             ;
+; 0.885  ; 0.885        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; NZVC[3]$latch             ;
+; 0.908  ; 0.908        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|inclk[0]  ;
+; 0.908  ; 0.908        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1clkctrl|outclk    ;
+; 0.917  ; 0.917        ; 0.000          ; High Pulse Width ; ALU_Sel[1] ; Rise       ; Equal0~1|datad            ;
+; 0.922  ; 0.922        ; 0.000          ; Low Pulse Width  ; ALU_Sel[1] ; Fall       ; Equal0~1|combout          ;
++--------+--------------+----------------+------------------+------------+------------+---------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; A[*]        ; ALU_Sel[1] ; 2.813 ; 3.320 ; Rise       ; ALU_Sel[1]      ;
+;  A[0]       ; ALU_Sel[1] ; 2.813 ; 3.320 ; Rise       ; ALU_Sel[1]      ;
+;  A[1]       ; ALU_Sel[1] ; 2.546 ; 3.170 ; Rise       ; ALU_Sel[1]      ;
+;  A[2]       ; ALU_Sel[1] ; 2.776 ; 3.270 ; Rise       ; ALU_Sel[1]      ;
+;  A[3]       ; ALU_Sel[1] ; 2.541 ; 3.153 ; Rise       ; ALU_Sel[1]      ;
+;  A[4]       ; ALU_Sel[1] ; 2.551 ; 3.023 ; Rise       ; ALU_Sel[1]      ;
+;  A[5]       ; ALU_Sel[1] ; 2.624 ; 3.255 ; Rise       ; ALU_Sel[1]      ;
+;  A[6]       ; ALU_Sel[1] ; 2.647 ; 3.134 ; Rise       ; ALU_Sel[1]      ;
+;  A[7]       ; ALU_Sel[1] ; 2.215 ; 2.821 ; Rise       ; ALU_Sel[1]      ;
+; ALU_Sel[*]  ; ALU_Sel[1] ; 2.050 ; 2.602 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[0] ; ALU_Sel[1] ; 2.050 ; 2.602 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[1] ; ALU_Sel[1] ; 0.589 ; 0.972 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[2] ; ALU_Sel[1] ; 1.880 ; 2.370 ; Rise       ; ALU_Sel[1]      ;
+; B[*]        ; ALU_Sel[1] ; 2.771 ; 3.399 ; Rise       ; ALU_Sel[1]      ;
+;  B[0]       ; ALU_Sel[1] ; 2.679 ; 3.161 ; Rise       ; ALU_Sel[1]      ;
+;  B[1]       ; ALU_Sel[1] ; 2.771 ; 3.399 ; Rise       ; ALU_Sel[1]      ;
+;  B[2]       ; ALU_Sel[1] ; 2.619 ; 3.102 ; Rise       ; ALU_Sel[1]      ;
+;  B[3]       ; ALU_Sel[1] ; 2.429 ; 3.032 ; Rise       ; ALU_Sel[1]      ;
+;  B[4]       ; ALU_Sel[1] ; 2.563 ; 3.041 ; Rise       ; ALU_Sel[1]      ;
+;  B[5]       ; ALU_Sel[1] ; 2.441 ; 3.054 ; Rise       ; ALU_Sel[1]      ;
+;  B[6]       ; ALU_Sel[1] ; 2.509 ; 2.991 ; Rise       ; ALU_Sel[1]      ;
+;  B[7]       ; ALU_Sel[1] ; 2.363 ; 2.974 ; Rise       ; ALU_Sel[1]      ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; A[*]        ; ALU_Sel[1] ; -0.357 ; -0.940 ; Rise       ; ALU_Sel[1]      ;
+;  A[0]       ; ALU_Sel[1] ; -0.708 ; -1.320 ; Rise       ; ALU_Sel[1]      ;
+;  A[1]       ; ALU_Sel[1] ; -0.516 ; -1.104 ; Rise       ; ALU_Sel[1]      ;
+;  A[2]       ; ALU_Sel[1] ; -0.636 ; -1.227 ; Rise       ; ALU_Sel[1]      ;
+;  A[3]       ; ALU_Sel[1] ; -0.618 ; -1.228 ; Rise       ; ALU_Sel[1]      ;
+;  A[4]       ; ALU_Sel[1] ; -0.364 ; -0.940 ; Rise       ; ALU_Sel[1]      ;
+;  A[5]       ; ALU_Sel[1] ; -0.608 ; -1.188 ; Rise       ; ALU_Sel[1]      ;
+;  A[6]       ; ALU_Sel[1] ; -0.357 ; -0.949 ; Rise       ; ALU_Sel[1]      ;
+;  A[7]       ; ALU_Sel[1] ; -0.378 ; -0.969 ; Rise       ; ALU_Sel[1]      ;
+; ALU_Sel[*]  ; ALU_Sel[1] ; 0.523  ; 0.099  ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[0] ; ALU_Sel[1] ; -0.643 ; -1.222 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[1] ; ALU_Sel[1] ; 0.523  ; 0.099  ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[2] ; ALU_Sel[1] ; -0.555 ; -1.125 ; Rise       ; ALU_Sel[1]      ;
+; B[*]        ; ALU_Sel[1] ; -0.588 ; -1.192 ; Rise       ; ALU_Sel[1]      ;
+;  B[0]       ; ALU_Sel[1] ; -0.849 ; -1.400 ; Rise       ; ALU_Sel[1]      ;
+;  B[1]       ; ALU_Sel[1] ; -1.010 ; -1.645 ; Rise       ; ALU_Sel[1]      ;
+;  B[2]       ; ALU_Sel[1] ; -0.813 ; -1.370 ; Rise       ; ALU_Sel[1]      ;
+;  B[3]       ; ALU_Sel[1] ; -0.651 ; -1.192 ; Rise       ; ALU_Sel[1]      ;
+;  B[4]       ; ALU_Sel[1] ; -0.777 ; -1.405 ; Rise       ; ALU_Sel[1]      ;
+;  B[5]       ; ALU_Sel[1] ; -0.661 ; -1.248 ; Rise       ; ALU_Sel[1]      ;
+;  B[6]       ; ALU_Sel[1] ; -0.676 ; -1.252 ; Rise       ; ALU_Sel[1]      ;
+;  B[7]       ; ALU_Sel[1] ; -0.588 ; -1.216 ; Rise       ; ALU_Sel[1]      ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Clock to Output Times                                                      ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ALU_Result[*]  ; ALU_Sel[1] ; 4.865 ; 4.998 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[0] ; ALU_Sel[1] ; 3.712 ; 3.725 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[1] ; ALU_Sel[1] ; 3.953 ; 3.989 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[2] ; ALU_Sel[1] ; 3.872 ; 3.899 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[3] ; ALU_Sel[1] ; 3.820 ; 3.840 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[4] ; ALU_Sel[1] ; 4.865 ; 4.998 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[5] ; ALU_Sel[1] ; 3.697 ; 3.710 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[6] ; ALU_Sel[1] ; 4.043 ; 4.083 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[7] ; ALU_Sel[1] ; 4.755 ; 4.891 ; Rise       ; ALU_Sel[1]      ;
+; NZVC[*]        ; ALU_Sel[1] ; 4.755 ; 4.891 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[0]       ; ALU_Sel[1] ; 4.028 ; 4.072 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[1]       ; ALU_Sel[1] ; 3.774 ; 3.795 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[2]       ; ALU_Sel[1] ; 3.975 ; 4.015 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[3]       ; ALU_Sel[1] ; 4.755 ; 4.891 ; Rise       ; ALU_Sel[1]      ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                              ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ALU_Result[*]  ; ALU_Sel[1] ; 3.615 ; 3.627 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[0] ; ALU_Sel[1] ; 3.630 ; 3.641 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[1] ; ALU_Sel[1] ; 3.859 ; 3.893 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[2] ; ALU_Sel[1] ; 3.783 ; 3.808 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[3] ; ALU_Sel[1] ; 3.731 ; 3.751 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[4] ; ALU_Sel[1] ; 4.774 ; 4.904 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[5] ; ALU_Sel[1] ; 3.615 ; 3.627 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[6] ; ALU_Sel[1] ; 3.947 ; 3.984 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[7] ; ALU_Sel[1] ; 4.630 ; 4.760 ; Rise       ; ALU_Sel[1]      ;
+; NZVC[*]        ; ALU_Sel[1] ; 3.688 ; 3.707 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[0]       ; ALU_Sel[1] ; 3.931 ; 3.974 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[1]       ; ALU_Sel[1] ; 3.688 ; 3.707 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[2]       ; ALU_Sel[1] ; 3.880 ; 3.918 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[3]       ; ALU_Sel[1] ; 4.630 ; 4.760 ; Rise       ; ALU_Sel[1]      ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+--------+--------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+--------+----------+---------+---------------------+
+; Worst-case Slack ; -0.808 ; -0.725 ; N/A      ; N/A     ; -3.000              ;
+;  ALU_Sel[1]      ; -0.808 ; -0.725 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -6.078 ; -5.526 ; 0.0      ; 0.0     ; -3.0                ;
+;  ALU_Sel[1]      ; -6.078 ; -5.526 ; N/A      ; N/A     ; -3.000              ;
++------------------+--------+--------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; A[*]        ; ALU_Sel[1] ; 5.110 ; 5.322 ; Rise       ; ALU_Sel[1]      ;
+;  A[0]       ; ALU_Sel[1] ; 5.110 ; 5.322 ; Rise       ; ALU_Sel[1]      ;
+;  A[1]       ; ALU_Sel[1] ; 4.613 ; 5.076 ; Rise       ; ALU_Sel[1]      ;
+;  A[2]       ; ALU_Sel[1] ; 5.047 ; 5.227 ; Rise       ; ALU_Sel[1]      ;
+;  A[3]       ; ALU_Sel[1] ; 4.616 ; 5.060 ; Rise       ; ALU_Sel[1]      ;
+;  A[4]       ; ALU_Sel[1] ; 4.647 ; 4.862 ; Rise       ; ALU_Sel[1]      ;
+;  A[5]       ; ALU_Sel[1] ; 4.755 ; 5.208 ; Rise       ; ALU_Sel[1]      ;
+;  A[6]       ; ALU_Sel[1] ; 4.794 ; 4.991 ; Rise       ; ALU_Sel[1]      ;
+;  A[7]       ; ALU_Sel[1] ; 4.043 ; 4.467 ; Rise       ; ALU_Sel[1]      ;
+; ALU_Sel[*]  ; ALU_Sel[1] ; 3.661 ; 4.082 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[0] ; ALU_Sel[1] ; 3.661 ; 4.082 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[1] ; ALU_Sel[1] ; 1.180 ; 1.288 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[2] ; ALU_Sel[1] ; 3.390 ; 3.709 ; Rise       ; ALU_Sel[1]      ;
+; B[*]        ; ALU_Sel[1] ; 5.026 ; 5.473 ; Rise       ; ALU_Sel[1]      ;
+;  B[0]       ; ALU_Sel[1] ; 4.876 ; 5.071 ; Rise       ; ALU_Sel[1]      ;
+;  B[1]       ; ALU_Sel[1] ; 5.026 ; 5.473 ; Rise       ; ALU_Sel[1]      ;
+;  B[2]       ; ALU_Sel[1] ; 4.770 ; 4.976 ; Rise       ; ALU_Sel[1]      ;
+;  B[3]       ; ALU_Sel[1] ; 4.427 ; 4.867 ; Rise       ; ALU_Sel[1]      ;
+;  B[4]       ; ALU_Sel[1] ; 4.667 ; 4.858 ; Rise       ; ALU_Sel[1]      ;
+;  B[5]       ; ALU_Sel[1] ; 4.467 ; 4.905 ; Rise       ; ALU_Sel[1]      ;
+;  B[6]       ; ALU_Sel[1] ; 4.590 ; 4.805 ; Rise       ; ALU_Sel[1]      ;
+;  B[7]       ; ALU_Sel[1] ; 4.286 ; 4.733 ; Rise       ; ALU_Sel[1]      ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Times                                                                ;
++-------------+------------+--------+--------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------+------------+--------+--------+------------+-----------------+
+; A[*]        ; ALU_Sel[1] ; -0.357 ; -0.856 ; Rise       ; ALU_Sel[1]      ;
+;  A[0]       ; ALU_Sel[1] ; -0.708 ; -1.320 ; Rise       ; ALU_Sel[1]      ;
+;  A[1]       ; ALU_Sel[1] ; -0.516 ; -1.104 ; Rise       ; ALU_Sel[1]      ;
+;  A[2]       ; ALU_Sel[1] ; -0.636 ; -1.227 ; Rise       ; ALU_Sel[1]      ;
+;  A[3]       ; ALU_Sel[1] ; -0.618 ; -1.228 ; Rise       ; ALU_Sel[1]      ;
+;  A[4]       ; ALU_Sel[1] ; -0.364 ; -0.886 ; Rise       ; ALU_Sel[1]      ;
+;  A[5]       ; ALU_Sel[1] ; -0.608 ; -1.188 ; Rise       ; ALU_Sel[1]      ;
+;  A[6]       ; ALU_Sel[1] ; -0.357 ; -0.856 ; Rise       ; ALU_Sel[1]      ;
+;  A[7]       ; ALU_Sel[1] ; -0.378 ; -0.933 ; Rise       ; ALU_Sel[1]      ;
+; ALU_Sel[*]  ; ALU_Sel[1] ; 0.725  ; 0.566  ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[0] ; ALU_Sel[1] ; -0.643 ; -1.222 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[1] ; ALU_Sel[1] ; 0.725  ; 0.566  ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Sel[2] ; ALU_Sel[1] ; -0.555 ; -1.125 ; Rise       ; ALU_Sel[1]      ;
+; B[*]        ; ALU_Sel[1] ; -0.588 ; -1.192 ; Rise       ; ALU_Sel[1]      ;
+;  B[0]       ; ALU_Sel[1] ; -0.849 ; -1.400 ; Rise       ; ALU_Sel[1]      ;
+;  B[1]       ; ALU_Sel[1] ; -1.010 ; -1.645 ; Rise       ; ALU_Sel[1]      ;
+;  B[2]       ; ALU_Sel[1] ; -0.813 ; -1.370 ; Rise       ; ALU_Sel[1]      ;
+;  B[3]       ; ALU_Sel[1] ; -0.651 ; -1.192 ; Rise       ; ALU_Sel[1]      ;
+;  B[4]       ; ALU_Sel[1] ; -0.777 ; -1.405 ; Rise       ; ALU_Sel[1]      ;
+;  B[5]       ; ALU_Sel[1] ; -0.661 ; -1.248 ; Rise       ; ALU_Sel[1]      ;
+;  B[6]       ; ALU_Sel[1] ; -0.676 ; -1.252 ; Rise       ; ALU_Sel[1]      ;
+;  B[7]       ; ALU_Sel[1] ; -0.588 ; -1.216 ; Rise       ; ALU_Sel[1]      ;
++-------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Clock to Output Times                                                      ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ALU_Result[*]  ; ALU_Sel[1] ; 8.002 ; 8.069 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[0] ; ALU_Sel[1] ; 6.311 ; 6.244 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[1] ; ALU_Sel[1] ; 6.776 ; 6.712 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[2] ; ALU_Sel[1] ; 6.571 ; 6.509 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[3] ; ALU_Sel[1] ; 6.508 ; 6.432 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[4] ; ALU_Sel[1] ; 8.002 ; 8.054 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[5] ; ALU_Sel[1] ; 6.285 ; 6.219 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[6] ; ALU_Sel[1] ; 6.916 ; 6.847 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[7] ; ALU_Sel[1] ; 7.985 ; 8.069 ; Rise       ; ALU_Sel[1]      ;
+; NZVC[*]        ; ALU_Sel[1] ; 7.985 ; 8.069 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[0]       ; ALU_Sel[1] ; 6.899 ; 6.829 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[1]       ; ALU_Sel[1] ; 6.440 ; 6.369 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[2]       ; ALU_Sel[1] ; 6.796 ; 6.727 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[3]       ; ALU_Sel[1] ; 7.985 ; 8.069 ; Rise       ; ALU_Sel[1]      ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                              ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; ALU_Result[*]  ; ALU_Sel[1] ; 3.615 ; 3.627 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[0] ; ALU_Sel[1] ; 3.630 ; 3.641 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[1] ; ALU_Sel[1] ; 3.859 ; 3.893 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[2] ; ALU_Sel[1] ; 3.783 ; 3.808 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[3] ; ALU_Sel[1] ; 3.731 ; 3.751 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[4] ; ALU_Sel[1] ; 4.774 ; 4.904 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[5] ; ALU_Sel[1] ; 3.615 ; 3.627 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[6] ; ALU_Sel[1] ; 3.947 ; 3.984 ; Rise       ; ALU_Sel[1]      ;
+;  ALU_Result[7] ; ALU_Sel[1] ; 4.630 ; 4.760 ; Rise       ; ALU_Sel[1]      ;
+; NZVC[*]        ; ALU_Sel[1] ; 3.688 ; 3.707 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[0]       ; ALU_Sel[1] ; 3.931 ; 3.974 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[1]       ; ALU_Sel[1] ; 3.688 ; 3.707 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[2]       ; ALU_Sel[1] ; 3.880 ; 3.918 ; Rise       ; ALU_Sel[1]      ;
+;  NZVC[3]       ; ALU_Sel[1] ; 4.630 ; 4.760 ; Rise       ; ALU_Sel[1]      ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; NZVC[0]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; NZVC[1]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; NZVC[2]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; NZVC[3]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ALU_Result[0] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ALU_Result[1] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ALU_Result[2] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ALU_Result[3] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ALU_Result[4] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ALU_Result[5] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ALU_Result[6] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ALU_Result[7] ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; ALU_Sel[0]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ALU_Sel[1]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ALU_Sel[2]              ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B[7]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A[7]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B[6]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A[6]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B[5]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A[5]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B[4]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A[4]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B[3]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A[3]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B[2]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A[2]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B[1]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A[1]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; B[0]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; A[0]                    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; NZVC[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; NZVC[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; NZVC[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; NZVC[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[0] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[1] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[2] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[3] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[4] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.33 V              ; -0.00341 V          ; 0.17 V                               ; 0.084 V                              ; 3.33e-09 s                  ; 3.24e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.33 V             ; -0.00341 V         ; 0.17 V                              ; 0.084 V                             ; 3.33e-09 s                 ; 3.24e-09 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[5] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[6] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[7] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-06 V                   ; 2.36 V              ; -0.0113 V           ; 0.122 V                              ; 0.022 V                              ; 4.5e-10 s                   ; 4.45e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-06 V                  ; 2.36 V             ; -0.0113 V          ; 0.122 V                             ; 0.022 V                             ; 4.5e-10 s                  ; 4.45e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.68e-07 V                   ; 2.35 V              ; -0.0132 V           ; 0.2 V                                ; 0.027 V                              ; 5.26e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.68e-07 V                  ; 2.35 V             ; -0.0132 V          ; 0.2 V                               ; 0.027 V                             ; 5.26e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.36e-07 V                   ; 2.35 V              ; -0.00444 V          ; 0.18 V                               ; 0.019 V                              ; 7.23e-10 s                  ; 9.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.36e-07 V                  ; 2.35 V             ; -0.00444 V         ; 0.18 V                              ; 0.019 V                             ; 7.23e-10 s                 ; 9.82e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; NZVC[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; NZVC[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; NZVC[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; NZVC[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[0] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[1] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[2] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[3] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[4] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.64 V              ; -0.011 V            ; 0.212 V                              ; 0.198 V                              ; 2.38e-09 s                  ; 2.29e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.64 V             ; -0.011 V           ; 0.212 V                             ; 0.198 V                             ; 2.38e-09 s                 ; 2.29e-09 s                 ; No                        ; Yes                       ;
+; ALU_Result[5] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[6] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ALU_Result[7] ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-08 V                   ; 2.73 V              ; -0.0566 V           ; 0.191 V                              ; 0.12 V                               ; 2.69e-10 s                  ; 2.76e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-08 V                  ; 2.73 V             ; -0.0566 V          ; 0.191 V                             ; 0.12 V                              ; 2.69e-10 s                 ; 2.76e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.72 V              ; -0.0747 V           ; 0.28 V                               ; 0.169 V                              ; 3.1e-10 s                   ; 3.01e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.72 V             ; -0.0747 V          ; 0.28 V                              ; 0.169 V                             ; 3.1e-10 s                  ; 3.01e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.53e-08 V                   ; 2.7 V               ; -0.0212 V           ; 0.204 V                              ; 0.049 V                              ; 4.85e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.53e-08 V                  ; 2.7 V              ; -0.0212 V          ; 0.204 V                             ; 0.049 V                             ; 4.85e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------+
+; Setup Transfers                                                     ;
++------------+------------+----------+----------+----------+----------+
+; From Clock ; To Clock   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+------------+----------+----------+----------+----------+
+; ALU_Sel[1] ; ALU_Sel[1] ; 54       ; 54       ; 0        ; 0        ;
++------------+------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------+
+; Hold Transfers                                                      ;
++------------+------------+----------+----------+----------+----------+
+; From Clock ; To Clock   ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+------------+----------+----------+----------+----------+
+; ALU_Sel[1] ; ALU_Sel[1] ; 54       ; 54       ; 0        ; 0        ;
++------------+------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 18    ; 18   ;
+; Unconstrained Input Port Paths  ; 140   ; 140  ;
+; Unconstrained Output Ports      ; 12    ; 12   ;
+; Unconstrained Output Port Paths ; 12    ; 12   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Wed Jun 01 08:18:03 2022
+Info: Command: quartus_sta ALU -c ALU
+Info: qsta_default_script.tcl version: #1
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '85'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
+Warning (335093): TimeQuest Timing Analyzer is analyzing 11 combinational loops as latches.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'ALU.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name ALU_Sel[1] ALU_Sel[1]
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.808
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.808              -6.078 ALU_Sel[1] 
+Info (332146): Worst-case hold slack is -0.725
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.725              -5.526 ALU_Sel[1] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000              -3.000 ALU_Sel[1] 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.681
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.681              -5.154 ALU_Sel[1] 
+Info (332146): Worst-case hold slack is -0.603
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.603              -4.690 ALU_Sel[1] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000              -3.000 ALU_Sel[1] 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.492
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.492              -3.824 ALU_Sel[1] 
+Info (332146): Worst-case hold slack is -0.523
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.523              -4.208 ALU_Sel[1] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000              -3.000 ALU_Sel[1] 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4679 megabytes
+    Info: Processing ended: Wed Jun 01 08:18:04 2022
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

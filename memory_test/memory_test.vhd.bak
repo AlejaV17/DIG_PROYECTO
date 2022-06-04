@@ -1,0 +1,32 @@
+entity memory_test is
+
+	port
+	(
+	
+	);
+end memory_test;
+
+-- Library Clause(s) (optional)
+-- Use Clause(s) (optional)
+
+architecture arch_memory_test of memory_test is
+
+	-- Declarations (optional)
+
+begin
+
+	-- Process Statement (optional)
+
+	-- Concurrent Procedure Call (optional)
+
+	-- Concurrent Signal Assignment (optional)
+
+	-- Conditional Signal Assignment (optional)
+
+	-- Selected Signal Assignment (optional)
+
+	-- Component Instantiation Statement (optional)
+
+	-- Generate Statement (optional)
+
+end arch_memory_test;

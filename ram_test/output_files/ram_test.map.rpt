@@ -1,0 +1,758 @@
+Analysis & Synthesis report for ram_test
+Wed Jun 01 09:02:23 2022
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jun 01 09:02:23 2022      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; ram_test                                   ;
+; Top-level Entity Name              ; ram_test                                   ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 3,098                                      ;
+;     Total combinational functions  ; 1,426                                      ;
+;     Dedicated logic registers      ; 1,680                                      ;
+; Total registers                    ; 1680                                       ;
+; Total pins                         ; 34                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; ram_test           ; ram_test           ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                      ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                               ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
+; ../rw_96x8_sync/rw_96x8_sync.vhd ; yes             ; User VHDL File  ; D:/DIG_PROYECTO/DIG_PROYECTO/rw_96x8_sync/rw_96x8_sync.vhd ;         ;
+; ../../deco7segV1/deco7segV1.vhd  ; yes             ; User VHDL File  ; D:/DIG_PROYECTO/DIG_PROYECTO/deco7segV1/deco7segV1.vhd     ;         ;
+; ram_test.vhd                     ; yes             ; User VHDL File  ; D:/DIG_PROYECTO/DIG_PROYECTO/ram_test/ram_test.vhd         ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 3,098          ;
+;                                             ;                ;
+; Total combinational functions               ; 1426           ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 1163           ;
+;     -- 3 input functions                    ; 262            ;
+;     -- <=2 input functions                  ; 1              ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 1426           ;
+;     -- arithmetic mode                      ; 0              ;
+;                                             ;                ;
+; Total registers                             ; 1680           ;
+;     -- Dedicated logic registers            ; 1680           ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 34             ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 1680           ;
+; Total fan-out                               ; 10528          ;
+; Average fan-out                             ; 3.32           ;
++---------------------------------------------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name        ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
+; |ram_test                  ; 1426 (0)          ; 1680 (0)     ; 0           ; 0            ; 0       ; 0         ; 34   ; 0            ; |ram_test                  ; work         ;
+;    |deco7segV1:S0|         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ram_test|deco7segV1:S0    ; work         ;
+;    |deco7segV1:S1|         ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ram_test|deco7segV1:S1    ; work         ;
+;    |rw_96x8_sync:ram|      ; 1412 (1412)       ; 1680 (1680)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ram_test|rw_96x8_sync:ram ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------+
+; Registers Removed During Synthesis                           ;
++-----------------------------------------+--------------------+
+; Register name                           ; Reason for Removal ;
++-----------------------------------------+--------------------+
+; rw_96x8_sync:ram|RW~700                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~828                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~572                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~956                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~732                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~860                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~604                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~988                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~668                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~796                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~540                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~924                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~764                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~892                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~636                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1020                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~932                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~836                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~804                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~964                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~740                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~644                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~612                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~772                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~676                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~580                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~548                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~708                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~996                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~900                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~868                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1028                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~692                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~820                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~564                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~948                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~724                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~852                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~596                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~980                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~660                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~788                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~532                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~916                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~756                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~884                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~628                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1012                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~940                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~876                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~812                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1004                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~652                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~716                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~588                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~780                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~684                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~620                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~556                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~748                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~972                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~908                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~844                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1036                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~220                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~244                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~212                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~252                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~172                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~196                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~164                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~204                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~156                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~180                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~148                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~188                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~236                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~260                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~228                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~268                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~300                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~356                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~292                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~364                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~372                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~316                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~308                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~380                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~340                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~284                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~276                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~348                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~388                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~332                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~324                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~396                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~60                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~68                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~52                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~76                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~92                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~100                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~84                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~108                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~28                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~36                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~20                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~44                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~124                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~132                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~116                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~140                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~452                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~444                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~436                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~460                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~484                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~476                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~468                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~492                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~420                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~412                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~404                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~428                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~516                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~508                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~500                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~524                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1884                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1892                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1876                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1900                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1860                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1852                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1844                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1868                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1820                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1828                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1812                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1836                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1924                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1916                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1908                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1932                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2012                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1980                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1948                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2044                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1988                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2020                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1956                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2052                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1972                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2004                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1940                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2036                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2028                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1996                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1964                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2060                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~592                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~704                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~576                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~720                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~952                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~840                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~824                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~968                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~696                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~584                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~568                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~712                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~848                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~960                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~832                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~976                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~864                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~984                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~856                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~992                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~624                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~744                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~616                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~752                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~608                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~728                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~600                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~736                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~880                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1000                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~872                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1008                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~560                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~680                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~552                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~688                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~920                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~800                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~792                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~928                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~664                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~544                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~536                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~672                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~816                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~936                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~808                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~944                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~904                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~776                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~648                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1032                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~896                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~768                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~640                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1024                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~888                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~760                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~632                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1016                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~912                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~784                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~656                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1040                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~472                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~352                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~344                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~480                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~320                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~440                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~312                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~448                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~408                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~288                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~280                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~416                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~384                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~504                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~376                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~512                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~200                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~80                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~72                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~208                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~232                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~112                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~104                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~240                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~168                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~48                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~40                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~176                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~264                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~144                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~136                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~272                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~216                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~96                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~88                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~224                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~184                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~64                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~56                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~192                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~152                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~32                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~24                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~160                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~248                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~128                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~120                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~256                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~336                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~456                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~328                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~464                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~488                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~368                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~360                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~496                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~424                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~304                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~296                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~432                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~400                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~520                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~392                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~528                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~737                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~705                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~673                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~769                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~945                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~977                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~913                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1009                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~689                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~721                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~657                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~753                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~993                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~961                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~929                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1025                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~225                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~193                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~161                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~257                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~433                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~465                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~401                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~497                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~177                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~209                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~145                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~241                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~481                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~449                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~417                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~513                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1926                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2038                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1910                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2054                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1022                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~910                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~894                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1038                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~902                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1014                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~886                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1030                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2046                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1934                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1918                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2062                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~702                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~950                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~694                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~958                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~838                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~590                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~582                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~846                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~574                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~822                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~566                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~830                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~718                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~966                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~710                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~974                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~190                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~78                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~62                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~206                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~438                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~326                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~310                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~454                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~182                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~70                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~54                  ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~198                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~334                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~446                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~318                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~462                 ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1969                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2001                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1937                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2033                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1985                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2017                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~1953                ; Lost fanout        ;
+; rw_96x8_sync:ram|RW~2049                ; Lost fanout        ;
+; Total Number of Removed Registers = 376 ;                    ;
++-----------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1680  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1680  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ram_test|rw_96x8_sync:ram|data_out[3] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Wed Jun 01 09:02:17 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ram_test -c ram_test
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /dig_proyecto/dig_proyecto/rw_96x8_sync/rw_96x8_sync.vhd
+    Info (12022): Found design unit 1: rw_96x8_sync-arch_rw_96x8_sync
+    Info (12023): Found entity 1: rw_96x8_sync
+Info (12021): Found 2 design units, including 1 entities, in source file /dig_proyecto/dig_proyecto/deco7segv1/deco7segv1.vhd
+    Info (12022): Found design unit 1: deco7segV1-behavioral
+    Info (12023): Found entity 1: deco7segV1
+Info (12021): Found 2 design units, including 1 entities, in source file ram_test.vhd
+    Info (12022): Found design unit 1: ram_test-arch_ram_test
+    Info (12023): Found entity 1: ram_test
+Info (12127): Elaborating entity "ram_test" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at ram_test.vhd(35): used explicit default value for signal "data_out1" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ram_test.vhd(36): used explicit default value for signal "data_out2" because signal was never assigned a value
+Info (12128): Elaborating entity "rw_96x8_sync" for hierarchy "rw_96x8_sync:ram"
+Info (12128): Elaborating entity "deco7segV1" for hierarchy "deco7segV1:S0"
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "rw_96x8_sync:ram|RW" is uninferred due to asynchronous read logic
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[7]" is stuck at VCC
+    Warning (13410): Pin "HEX1[7]" is stuck at VCC
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 376 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored assignments for entity "DE0_Default" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name LL_ROOT_REGION ON -entity DE0_Default -section_id "Root Region" was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity DE0_Default -section_id "Root Region" was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name LL_ROUTING_REGION OFF -entity DE0_Default -section_id "Root Region" was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 14622752 -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE0_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_Default -section_id Top was ignored
+Warning (20013): Ignored assignments for entity "Lab3a_s1" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity Lab3a_s1 -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity Lab3a_s1 -section_id Top was ignored
+Warning (20013): Ignored assignments for entity "Lab3b" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity Lab3b -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity Lab3b -section_id Top was ignored
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3132 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 16 output pins
+    Info (21061): Implemented 3098 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 82 warnings
+    Info: Peak virtual memory: 4697 megabytes
+    Info: Processing ended: Wed Jun 01 09:02:23 2022
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:06
+
+
